@@ -1,6 +1,7 @@
 package br.com.alura.tdd.teste.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -27,12 +28,12 @@ public class BonusServiceTest {
 	
 	@Test
 	@DisplayName("Should be equal]")
-	public void bonusDeveriaSerZEROQuandoMaiorQueMil() {
+	public void bonusDeveriaSerZEROQuandoMaiorQue10Mil() {
 		
 		Funcionario funcionario = new Funcionario("Teste ", LocalDate.of(2020, 8, 14), BigDecimal.valueOf(10001L));
-		BigDecimal bonus = bonusService.calcularBonus(funcionario);
+		assertThrows(IllegalArgumentException.class, () -> bonusService.calcularBonus(funcionario));
 		
-		assertEquals((BigDecimal.ZERO).setScale(2), bonus);
+		
 	}
 
 	@Test
