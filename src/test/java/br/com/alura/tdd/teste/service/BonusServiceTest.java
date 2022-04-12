@@ -17,7 +17,7 @@ public class BonusServiceTest {
 	BonusService bonusService = new BonusService(); 
 	
 	@Test
-    @DisplayName("Should be equal")
+    @DisplayName("Testa se o valor do bonus é igual ao esperado")
 	public void DeveriaCalcularBonus() {
 		Funcionario funcionario = new Funcionario("Teste", LocalDate.now(), BigDecimal.valueOf(10000L));
 		BigDecimal bonus = bonusService.calcularBonus(funcionario);
