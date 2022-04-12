@@ -10,17 +10,8 @@ public class BonusService {
 
 	public BigDecimal calcularBonus(Funcionario funcionario) {
 		if (funcionario.getSalario().compareTo(BigDecimal.valueOf(10000)) > 0) {
-			throw new IllegalArgumentException("Funcionário com salário maior que R$10000,00 não recebem bonus.");
+			throw new IllegalArgumentException("Funcionï¿½rio com salï¿½rio maior que R$10000,00 nï¿½o recebem bonus.");
 		}
 		return funcionario.getSalario().multiply(new BigDecimal("0.1")).setScale(2, RoundingMode.HALF_UP);
 	}
-
-	public void ajustarSalarioConformeDesempenho(Desempenho desempenho, Funcionario funcionario) {
-		funcionario.setSalario(calcularAjusteSalario(funcionario.getSalario(), desempenho.percentualReajuste()));
-	}
-
-	public BigDecimal calcularAjusteSalario(BigDecimal percent, BigDecimal salario) {
-		return salario.multiply(percent);
-	}
-
 }

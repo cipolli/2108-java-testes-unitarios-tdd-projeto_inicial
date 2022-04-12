@@ -25,11 +25,16 @@ public class Funcionario {
 	}
 
 	public BigDecimal getSalario() {
-		return salario.setScale(2, RoundingMode.HALF_UP );
+		return salario;
 	}
 	
 	public void setSalario(BigDecimal salario) {
 		this.salario = salario;		
+		roundingSalario();
+	}
+	
+	private void roundingSalario() {
+		this.salario = salario.setScale(2, RoundingMode.HALF_UP );
 	}
 
 }
